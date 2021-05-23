@@ -20,6 +20,9 @@ export class SignInComponent implements OnInit{
     get user() { return this.loginForm.get('user')! }
 
     get password() { return this.loginForm.get('password')! }
-    
+
+    save() {
+        
+    }
 
 }

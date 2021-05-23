@@ -9,16 +9,16 @@
             placeholder="user name" 
             formControlName="user"
             autofocus>  
-        <small
+            
+        <app-vmessage
             *ngIf="user.errors?.required && (user.dirty || user.touched)"
-            class="text-danger d-block mt-2">
-            User is required!
-        </small>
-        <small
+            text='User is required!'>
+        </app-vmessage>
+
+        <app-vmessage
             *ngIf="user.errors?.minlength"
-            class="text-danger d-block mt-2">
-            User must be at least 3 characters long.
-        </small>
+            text='User must be at least 3 characters long!'>
+        </app-vmessage>
     </div>
 
     <div class="form-group">
@@ -26,15 +26,20 @@
             type="text" 
             class="form-control" 
             formControlName="password"
-            placeholder="password">      
-        <small
+            placeholder="password">   
+            
+        <app-vmessage
             *ngIf="password.errors?.required && (password.dirty || password.touched)"
-            class="text-danger d-block mt-2">
-            Password is required!
-        </small>        
+            text='Password is required'>
+        </app-vmessage>     
     </div>
 
-    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-block">login</button>
+    <button (click)="save()"
+        [disabled]="loginForm.invalid" 
+        type="submit" 
+        class="btn btn-primary btn-block">
+        login
+    </button>
 
 </form>
 
