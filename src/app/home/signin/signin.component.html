@@ -10,9 +10,14 @@
             formControlName="user"
             autofocus>  
         <small
-            *ngIf="user.errors?.required"
+            *ngIf="user.errors?.required && (user.dirty || user.touched)"
             class="text-danger d-block mt-2">
             User is required!
+        </small>
+        <small
+            *ngIf="user.errors?.minlength"
+            class="text-danger d-block mt-2">
+            User must be at least 3 characters long.
         </small>
     </div>
 
@@ -23,7 +28,7 @@
             formControlName="password"
             placeholder="password">      
         <small
-            *ngIf="password.errors?.required"
+            *ngIf="password.errors?.required && (password.dirty || password.touched)"
             class="text-danger d-block mt-2">
             Password is required!
         </small>        
